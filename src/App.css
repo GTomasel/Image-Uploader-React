@@ -3,17 +3,18 @@
 }
 
 .App-header {
-  /* background-color: #282c34; */
+  background-color: #eee;
+  background-image: url("https://www.transparenttextures.com/patterns/cream-dust.png");
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
   color: rgb(30, 30, 30);
 }
 
 img {
-  width: 25%;
+  max-width: 288px;
+  max-height: 200px;
   margin-top: 2rem;
 }
 
@@ -23,18 +24,32 @@ img {
   color: "#000000";
 }
 
+.title{
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.subTitle{
+  color: grey;
+}
+
 .uploadCard {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   width: 402px;
-  height: 469px;
+  min-height: 469px;
   background: #ffffff;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
 }
 
 .fileSelectBox {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-start;
   background: url(../public/image.svg) #f6f8fb no-repeat;
   box-sizing: border-box;
   width: 338px;
@@ -42,6 +57,8 @@ img {
   border-radius: 12px;
   background-position: center;
   background-size: 10rem;
+  color: grey;
+  font-size: .9rem;
   border: 2px dashed #97bef4;
 }
 
@@ -54,4 +71,35 @@ img {
   background-position: center;
   background-size: 10rem;
   border: 2px dashed #7fb5ff;
+}
+
+.imgPreview{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  width: 338px;
+  min-height: 218.9px;
+  padding: 20px;
+  margin-bottom: 0px;
+  border-radius: 12px;
+  background-position: center;
+  background-size: 10rem;
+  border: 2px solid #97bef4;
+}
+
+
+.loader {
+  border: 10px solid #c8deff;
+  border-top: 10px solid #0d6efd; 
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin .5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
