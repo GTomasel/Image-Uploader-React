@@ -16,7 +16,14 @@ function App() {
   //////////////////////////////////////// Drag & Drop ////////////////////////////////////////
 
   const { getRootProps, getInputProps } = useDropzone({
-    accept: "image/*",
+    accept: {
+      'image/jpeg': ['.jpg','.jpeg'],
+      'image/png': ['.png'],
+      'image/bmp': ['.bmp'],
+      'image/gif': ['.gif'],
+      'image/tiff': ['.tif','.tiff'],
+      'image/webp': ['.webp']
+    },
     multiple: false,
     onDrop: (acceptedFiles) => {
       setSelectedImage(acceptedFiles[0])
@@ -30,6 +37,12 @@ function App() {
 
   useEffect(() => {
     if (selectedImage == null) return
+
+    if (selectedImage.type.split('/')[0] !== "image"){
+      toast.error('Invalid file type')
+      return
+    }
+
     setUploadedImageURL(null)
     setUploading(true)
     const imageRef = ref(storage, `images/${selectedImage.name}-${v4()}`)
@@ -70,7 +83,7 @@ function App() {
 
               {uploading &&
                 <div className="imgPreview">
-                  <div class="loader"></div>
+                  <div className="loader"></div>
                 </div>
               }
 
@@ -85,7 +98,7 @@ function App() {
               <div {...getRootProps()} className="imgPreview mb-3" onClick={() => null}>
                 <img src={uploadedImageURL} alt="preview" />
                 <CopyToClipboard text={uploadedImageURL}>
-                  <button className="mt-2 btn" onClick={() => toast.success('Copied to clipboard!')}>Copy link 📄</button>
+                  <button className="mt-2 btn btn-light" onClick={() => toast.success('Copied to clipboard!')}>Copy link 📄</button>
                 </CopyToClipboard>
                 <input {...getInputProps()} />
               </div>

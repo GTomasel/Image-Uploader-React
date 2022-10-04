@@ -13,9 +13,14 @@
 }
 
 img {
-  max-width: 288px;
-  max-height: 200px;
+  object-fit: cover;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  max-width: 300px;
+  max-height: 300px;
   margin-top: 2rem;
+  border: 1px solid #808080;
 }
 
 .toastNotification {
@@ -24,12 +29,12 @@ img {
   color: "#000000";
 }
 
-.title{
+.title {
   font-size: 1.5rem;
   margin-top: 1rem;
 }
 
-.subTitle{
+.subTitle {
   color: grey;
 }
 
@@ -58,12 +63,12 @@ img {
   background-position: center;
   background-size: 10rem;
   color: grey;
-  font-size: .9rem;
+  font-size: 0.9rem;
   border: 2px dashed #97bef4;
 }
 
 .fileSelectBox:hover {
-  background: url(../public/image.svg) #f2f2f2  no-repeat;
+  background: url(../public/image.svg) #f2f2f2 no-repeat;
   box-sizing: border-box;
   width: 338px;
   height: 218.9px;
@@ -73,7 +78,7 @@ img {
   border: 2px dashed #7fb5ff;
 }
 
-.imgPreview{
+.imgPreview {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,17 +94,20 @@ img {
   border: 2px solid #97bef4;
 }
 
-
 .loader {
   border: 10px solid #c8deff;
-  border-top: 10px solid #0d6efd; 
+  border-top: 10px solid #0d6efd;
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  animation: spin .5s linear infinite;
+  animation: spin 0.5s linear infinite;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
